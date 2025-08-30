@@ -1,0 +1,94 @@
+{
+    "id": "777w5d35",
+    "version": "1.0.0",
+    "name": "Custom Form",
+    "toEmail": "test@dorik.io",
+    "subject": "Custom Form from Dorik",
+    "successMessage": "Successful Form Submission",
+    "fields": [
+        {
+            "id": "mffkcgsa",
+            "label": "Name",
+            "name": "name",
+            "placeholder": "Enter your Name",
+            "type": "text",
+            "required": true,
+            "columnWidth": "50%"
+        },
+        {
+            "id": "72hje740",
+            "type": "email",
+            "label": "Email",
+            "placeholder": "Your Email Address",
+            "name": "email",
+            "required": true,
+            "columnWidth": "50%"
+        },
+        {
+            "id": "0l3jl63i",
+            "type": "time",
+            "label": "Time",
+            "columnWidth": "50%",
+            "name": "time",
+            "required": false
+        },
+        {
+            "id": "4964r7li",
+            "type": "date",
+            "label": "Date",
+            "columnWidth": "50%",
+            "name": "date",
+            "required": false
+        },
+        {
+            "id": "3vlb0g2e",
+            "type": "radio",
+            "label": "Radio Input",
+            "options": [
+                "Option 1=option1",
+                "Option 2=option2",
+                "Option 3=option3"
+            ],
+            "columnWidth": "50%",
+            "name": "Radio Input",
+            "required": false
+        },
+        {
+            "id": "n2t18jme",
+            "type": "checkbox",
+            "label": "Checkbox Input",
+            "options": [
+                "Option 1=option1",
+                "Option 2=option2",
+                "Option 3=option3"
+            ],
+            "inlineStyle": "bellow",
+            "columnWidth": "50%",
+            "name": "Checkbox Input",
+            "required": false
+        },
+        {
+            "id": "6x0gza3h",
+            "type": "file",
+            "label": "Upload",
+            "name": "Upload",
+            "columnWidth": "33%"
+        },
+        {
+            "id": "7azo7fj6",
+            "type": "select",
+            "label": "Select",
+            "name": "Select",
+            "placeholder": "Select",
+            "options": ["Option 1=option-1", "Option 2 =option-2"],
+            "columnWidth": "66%"
+        },
+        {
+            "id": "b5dbentx",
+            "type": "acceptance",
+            "content": "<p><strong>I agree with all terms and conditions.</strong></p>\n",
+            "required": true,
+            "columnWidth": "100%"
+        }
+    ]
+}
