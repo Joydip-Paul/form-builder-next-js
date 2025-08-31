@@ -4,7 +4,7 @@ export default function Field({ field }: { field: FormField }) {
   return (
     <div className="field-card" style={{ gridColumn: `span ${field.columnWidth ?? 12}` }}>
       {field.type !== 'acceptance' && (
-        <label className="label">
+        <label className="label builder-label">
           {field.label} {field.required ? <span className="req">*</span> : null}
         </label>
       )}
@@ -16,7 +16,7 @@ export default function Field({ field }: { field: FormField }) {
         <input className="input" type="email" placeholder={field.placeholder || ''} disabled />
       )}
       {field.type === 'acceptance' && (
-        <label className="check">
+        <label className="check builder-label">
           <input type="checkbox" disabled /> {field.label}
         </label>
       )}
@@ -48,7 +48,6 @@ export default function Field({ field }: { field: FormField }) {
   <div className="group">
     {(field.options ?? []).map((o) => (
       <label key={o.key} className="check">
-        {/* use field.id so each radio field is its own group */}
         <input type="radio" name={field.id} disabled /> {o.label}
       </label>
     ))}

@@ -22,7 +22,6 @@ export default function FormPreview({ fields, successMessage }: Props) {
   } = useForm<FormValues>();
 
   const onSubmit = (data: FormValues) => {
-    // inspect payload here if needed
     // console.log("Form data:", data);
     setSubmitted(true);
   };
@@ -44,7 +43,7 @@ export default function FormPreview({ fields, successMessage }: Props) {
         const name = field.name;
 
         return (
-          <div key={field.id} className="field-card" style={{ gridColumn: `span ${field.columnWidth ?? 12}` }}>
+          <div key={field.id} className="field-card">
             {field.type !== FieldTypes.ACCEPTANCE && (
               <label className="label">
                 {field.label} {req ? <span className="req">*</span> : null}

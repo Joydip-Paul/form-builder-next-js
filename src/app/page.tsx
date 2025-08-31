@@ -38,7 +38,7 @@ export default function Home() {
     });
   };
 
-  const handleSettings = (id: string) => setSelectedId(id);
+  // const handleSettings = (id: string) => setSelectedId(id);
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
@@ -73,7 +73,7 @@ export default function Home() {
                 <BuilderItem
                   key={f.id}
                   field={f}
-                  onSettings={handleSettings}
+                  // onSettings={handleSettings}
                   onDuplicate={handleDuplicate}
                   onDelete={handleDelete}
                 />

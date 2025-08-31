@@ -29,8 +29,15 @@ body {
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  /* grid-template-columns: repeat(12, minmax(0, 1fr)); */
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
+}
+
+@media only screen and (max-width: 767px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .field-card {
   background: #0f1329;
@@ -44,6 +51,10 @@ body {
   margin-bottom: 6px;
   color: var(--muted);
   font-size: 0.9rem;
+  /* padding-left: 32px; */
+}
+.builder-label {
+  padding-left: 32px;
 }
 .req {
   color: #ff6b6b;
@@ -81,8 +92,8 @@ body {
 }
 .item-wrap .actions {
   position: absolute;
-  top: 0;
-  right: 6px;
+  top: 12px;
+  right: 12px;
   display: flex;
   gap: 6px;
   opacity: 0;
@@ -120,9 +131,17 @@ body {
   cursor: grab;
   background: #151a2e;
   border-radius: 6px;
-  width: 28px;
-  height: 28px;
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  width: 26px;
 }
 .item-wrap {
   position: relative;
+}
+
+.actions {
+  .icon {
+    font-size: 20px;
+  }
 }
