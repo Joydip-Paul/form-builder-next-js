@@ -3,6 +3,10 @@
 import Field from "../components/Field";
 import type { FormField } from "../types/form";
 
+// NEW:
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+
 type Props = {
   field: FormField;
   onSettings: (id: string) => void;
@@ -11,8 +15,23 @@ type Props = {
 };
 
 export default function BuilderItem({ field, onSettings, onDuplicate, onDelete }: Props) {
+  // NEW: wire this item to dnd-kit
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } =
+    useSortable({ id: field.id });
+
+  const style: React.CSSProperties = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.6 : 1,
+    gridColumn: `span ${field.columnWidth ?? 12}`, // keep your width
+  };
+
   return (
-    <div className="item-wrap" style={{ gridColumn: `span ${field.columnWidth ?? 12}` }}>
+    // attach the ref + style to the wrapper
+    <div ref={setNodeRef} className="item-wrap" style={style}>
+      {/* small drag handle (applies listeners/attributes) */}
+      <button className="drag-handle" title="Drag" {...attributes} {...listeners}>⋮⋮</button>
+
       <Field field={field} />
 
       <div className="actions">

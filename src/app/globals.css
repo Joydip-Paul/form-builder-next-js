@@ -1,7 +1,7 @@
 @import "tailwindcss";
 :root {
-  --bg: #000457;
-  --panel: #151a2e;
+  --bg: #010621;
+  --panel: #010621;
   --text: #d7d7d7;
   --muted: #fff;
   --border: #646881;
@@ -37,6 +37,7 @@ body {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 10px;
+  margin-top: 5px;
 }
 .label {
   display: block;
@@ -80,7 +81,7 @@ body {
 }
 .item-wrap .actions {
   position: absolute;
-  top: 6px;
+  top: 0;
   right: 6px;
   display: flex;
   gap: 6px;
@@ -111,4 +112,17 @@ body {
 }
 .icon:hover {
   filter: brightness(1.1);
+}
+
+.drag-handle {
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: grab;
+  background: #151a2e;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+}
+.item-wrap {
+  position: relative;
 }
