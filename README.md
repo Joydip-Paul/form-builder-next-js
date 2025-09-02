@@ -21,7 +21,7 @@ This project is lightweight, beginner-friendly, and demonstrates drag-and-drop f
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/your-username/no-code-form-builder.git
-cd no-code-form-builder
+cd form-builder-next-js
 
 
 npm install
