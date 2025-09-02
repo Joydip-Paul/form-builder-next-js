@@ -22,8 +22,12 @@ export default function FormPreview({ fields, successMessage }: Props) {
   } = useForm<FormValues>();
 
   const onSubmit = (data: FormValues) => {
-    // console.log("Form data:", data);
+    console.log("Form data:", data);
     setSubmitted(true);
+
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 3000);
   };
 
   const hasError = (n: string) =>

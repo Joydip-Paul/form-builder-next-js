@@ -8,7 +8,11 @@ import FormPreview from "../components/FormPreview";
 import type { FormField } from "../types/form";
 
 import { DndContext, closestCenter, DragEndEvent } from "@dnd-kit/core";
-import { SortableContext, arrayMove, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import {
+  SortableContext,
+  arrayMove,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
 
 type JsonMeta = { successMessage?: string };
 
@@ -23,15 +27,19 @@ export default function Home() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const handleDelete = (id: string) => {
-    setFields(prev => prev.filter(f => f.id !== id));
+    setFields((prev) => prev.filter((f) => f.id !== id));
     if (selectedId === id) setSelectedId(null);
   };
 
   const handleDuplicate = (id: string) => {
-    setFields(prev => {
-      const idx = prev.findIndex(f => f.id === id);
+    setFields((prev) => {
+      const idx = prev.findIndex((f) => f.id === id);
       if (idx === -1) return prev;
-      const copy: FormField = { ...prev[idx], id: uid(), name: `${prev[idx].name}_${Math.floor(Math.random()*100)}` };
+      const copy: FormField = {
+        ...prev[idx],
+        id: uid(),
+        name: `${prev[idx].name}_${Math.floor(Math.random() * 100)}`,
+      };
       const next = [...prev];
       next.splice(idx + 1, 0, copy);
       return next;
@@ -43,9 +51,9 @@ export default function Home() {
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
     if (!over || active.id === over.id) return;
-    setFields(prev => {
-      const oldIndex = prev.findIndex(f => f.id === active.id);
-      const newIndex = prev.findIndex(f => f.id === over.id);
+    setFields((prev) => {
+      const oldIndex = prev.findIndex((f) => f.id === active.id);
+      const newIndex = prev.findIndex((f) => f.id === over.id);
       if (oldIndex < 0 || newIndex < 0) return prev;
       return arrayMove(prev, oldIndex, newIndex);
     });
@@ -54,22 +62,53 @@ export default function Home() {
   return (
     <main className="main">
       <div className="builder-header">
-        <h2 className="heading-title">{preview ? "Preview" : "Dorik Form Builder"}</h2>
-        <div style={{display:'flex', gap:8}}>
-          <button onClick={() => setPreview(p => !p)} className="main-btn">
+        <h2 className="heading-title">
+          {preview ? "Preview" : "Dorik Form Builder"}
+        </h2>
+        <div style={{ display: "flex", gap: 8 }}>
+          <button onClick={() => setPreview((p) => !p)} className="main-btn">
             {preview ? "Back to Edit" : "Preview"}
           </button>
-          <button onClick={() => { setFields(initial); setSelectedId(null); }} className="main-btn">
+          <button
+            onClick={() => {
+              setFields(initial);
+              setSelectedId(null);
+            }}
+            className="main-btn"
+          >
             Reset
+          </button>
+
+          <button
+            type="button"
+            className="main-btn"
+            onClick={() => {
+              const jsonData = JSON.stringify(fields, null, 2);
+              const blob = new Blob([jsonData], { type: "application/json" });
+              const url = URL.createObjectURL(blob);
+              const link = document.createElement("a");
+              link.href = url;
+              link.download = "dorik-form-builder.json";
+              link.click();
+              URL.revokeObjectURL(url);
+            }}
+          >
+            Export JSON
           </button>
         </div>
       </div>
 
       {!preview ? (
-        <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-          <SortableContext items={fields.map(f => f.id)} strategy={verticalListSortingStrategy}>
+        <DndContext
+          collisionDetection={closestCenter}
+          onDragEnd={handleDragEnd}
+        >
+          <SortableContext
+            items={fields.map((f) => f.id)}
+            strategy={verticalListSortingStrategy}
+          >
             <div className="grid">
-              {fields.map(f => (
+              {fields.map((f) => (
                 <BuilderItem
                   key={f.id}
                   field={f}
