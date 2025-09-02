@@ -18,9 +18,6 @@ This project is lightweight, beginner-friendly, and demonstrates drag-and-drop f
 
 ## 🚀 Getting Started
 
-### 1. Clone the Repository
-```bash
-
 
 npm install
 # or
