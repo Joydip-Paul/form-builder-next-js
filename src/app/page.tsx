@@ -53,13 +53,13 @@ export default function Home() {
 
   return (
     <main className="main">
-      <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-        <h2>{preview ? "Preview" : "Builder (with actions & settings)"}</h2>
+      <div className="builder-header">
+        <h2 className="heading-title">{preview ? "Preview" : "Dorik Form Builder"}</h2>
         <div style={{display:'flex', gap:8}}>
-          <button onClick={() => setPreview(p => !p)} style={{padding:'8px 12px', borderRadius:8, border:'1px solid #2a3158', background:'#151a2e', color:'#e7e9f3'}}>
+          <button onClick={() => setPreview(p => !p)} className="main-btn">
             {preview ? "Back to Edit" : "Preview"}
           </button>
-          <button onClick={() => { setFields(initial); setSelectedId(null); }} style={{padding:'8px 12px', borderRadius:8, border:'1px solid #2a3158', background:'#151a2e', color:'#e7e9f3'}}>
+          <button onClick={() => { setFields(initial); setSelectedId(null); }} className="main-btn">
             Reset
           </button>
         </div>

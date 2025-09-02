@@ -26,6 +26,8 @@ export default function BuilderItem({ field, onDuplicate, onDelete }: Props) {
 
   return (
     <div
+  
+        
       ref={setNodeRef}
       className={`item-wrap ${isDragging ? "dragging" : ""} col-${
         field.columnWidth ?? 12
@@ -41,7 +43,7 @@ export default function BuilderItem({ field, onDuplicate, onDelete }: Props) {
         {...attributes}
         {...listeners}
       >
-        ⋮⋮
+<Image src="/img/drag.svg" alt="Drag" width={20} height={20} className="drag-icon"/>
       </button>
 
       <Field field={field} />
@@ -50,14 +52,22 @@ export default function BuilderItem({ field, onDuplicate, onDelete }: Props) {
           <button
             className="icon"
             title="Duplicate"
-            onClick={() => onDuplicate(field.id)}
+             onClick={(e) => {
+      e.stopPropagation();
+      onDuplicate(field.id);
+      console.log("Take copy: ", field.id);
+    }}
           >
             <Image src="/img/copy.svg" alt="Duplicate" width={20} height={20} />
           </button>
         <button
           className="icon danger"
           title="Delete"
-          onClick={() => onDelete(field.id)}
+          onClick={(e)=>{
+            e.stopPropagation();
+            onDelete(field.id)
+            console.log("Deleted", field.id);
+          }}
         >
           <Image src="/img/close.svg" alt="Duplicate" width={20} height={20} />
         </button>

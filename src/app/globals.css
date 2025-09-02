@@ -1,10 +1,10 @@
 @import "tailwindcss";
 :root {
-  --bg: #010621;
-  --panel: #010621;
-  --text: #d7d7d7;
-  --muted: #fff;
-  --border: #646881;
+  --bg: #fff;
+  --panel: #fff;
+  --text: #010621;
+  --muted: #010621;
+  --border: #cecece;
 }
 html,
 body {
@@ -27,9 +27,16 @@ body {
   display: grid;
   gap: 16px;
 }
+
+.builder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #c3c5c7;
+}
 .grid {
   display: grid;
-  /* grid-template-columns: repeat(12, minmax(0, 1fr)); */
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
@@ -39,19 +46,56 @@ body {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+.item-wrap {
+  cursor: pointer;
+}
+
 .field-card {
-  background: #0f1329;
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  background: #fff;
+  border: 1px dashed var(--border);
+  border-radius: 5px;
   padding: 10px;
   margin-top: 5px;
+  transition: 0.3s all;
 }
+
+.drag-handle {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  width: 26px;
+}
+
+.field-card:hover {
+  border: 1px dashed #040e48;
+  transition: 0.3s all;
+  cursor: pointer;
+  background-color: #ebf2f9;
+}
+
+.field-card:hover .input {
+  background-color: #d4dee8;
+  color: #777;
+  transition: 0.3s all;
+}
+
+.drag-icon {
+  border: 1px solid #cecece;
+  color: #010621;
+  cursor: grab;
+  background: #fff;
+  border-radius: 5px;
+  width: 25px;
+  height: 25px;
+  opacity: 0.5;
+}
+
 .label {
   display: block;
   margin-bottom: 6px;
   color: var(--muted);
   font-size: 0.9rem;
-  /* padding-left: 32px; */
 }
 .builder-label {
   padding-left: 32px;
@@ -61,12 +105,12 @@ body {
   margin-left: 4px;
 }
 .input {
+  color: #a7a8ad;
+  background: #f3f4f5;
+  border: 1px solid #dee4eb;
+  border-radius: 8px;
   width: 100%;
   padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: #121735;
-  color: var(--text);
 }
 .check {
   display: inline-flex;
@@ -104,9 +148,9 @@ body {
 }
 
 .icon {
-  border: 1px solid var(--border);
-  background: #151a2e;
-  color: var(--text);
+  border: 1px solid #cecece;
+  background: #fff;
+  color: #010621;
   width: 28px;
   height: 28px;
   border-radius: 6px;
@@ -118,24 +162,12 @@ body {
   line-height: 1;
 }
 .icon.danger {
-  border-color: #5a2a2a;
   color: #ff9aa2;
 }
 .icon:hover {
   filter: brightness(1.1);
 }
 
-.drag-handle {
-  border: 1px solid var(--border);
-  color: var(--text);
-  cursor: grab;
-  background: #151a2e;
-  border-radius: 6px;
-  position: absolute;
-  top: 12px;
-  left: 10px;
-  width: 26px;
-}
 .item-wrap {
   position: relative;
 }
@@ -144,4 +176,26 @@ body {
   .icon {
     font-size: 20px;
   }
+}
+
+.heading-title {
+  font-size: 20px;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.main-btn {
+  padding: 8px 20px;
+  border-radius: 5px;
+  border: 1px solid #2a3158;
+  background: #ffffff;
+  color: #121735;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.main-btn:hover {
+  background-color: #010621;
+  color: #fff;
+  transition: 0.3s all;
 }

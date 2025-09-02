@@ -16,7 +16,7 @@ export default function Field({ field }: { field: FormField }) {
         <input className="input" type="email" placeholder={field.placeholder || ''} disabled />
       )}
       {field.type === 'acceptance' && (
-        <label className="check builder-label">
+        <label className="check">
           <input type="checkbox" disabled /> {field.label}
         </label>
       )}
