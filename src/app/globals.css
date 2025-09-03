@@ -207,6 +207,11 @@ body {
   cursor: pointer;
 }
 
+.main-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
 .main-btn:hover {
   background-color: #010621;
   color: #fff;

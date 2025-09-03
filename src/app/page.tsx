@@ -78,7 +78,7 @@ export default function Home() {
           <button onClick={() => setPreview((p) => !p)} className="main-btn">
             {preview ? "Back to Edit" : "View Preview"}
           </button>
-          <button
+          {/* <button
             onClick={() => {
               setFields(initial);
               setSelectedId(null);
@@ -86,24 +86,19 @@ export default function Home() {
             className="main-btn"
           >
             Reset
-          </button>
-
-          {/* <button
-            type="button"
-            className="main-btn"
-            onClick={() => {
-              const jsonData = JSON.stringify(fields, null, 2);
-              const blob = new Blob([jsonData], { type: "application/json" });
-              const url = URL.createObjectURL(blob);
-              const link = document.createElement("a");
-              link.href = url;
-              link.download = "dorik-form-builder.json";
-              link.click();
-              URL.revokeObjectURL(url);
-            }}
-          >
-            Export JSON
           </button> */}
+
+          {!preview && (
+            <button
+              onClick={() => {
+                setFields(initial);
+                setSelectedId(null);
+              }}
+              className="main-btn"
+            >
+              Reset
+            </button>
+          )}
         </div>
       </div>
 
