@@ -34,6 +34,8 @@ body {
   align-items: center;
   padding-bottom: 20px;
   border-bottom: 1px solid #c3c5c7;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 .grid {
   display: grid;
@@ -116,6 +118,7 @@ body {
   display: inline-flex;
   gap: 8px;
   align-items: center;
+  padding-left: 30px;
 }
 
 .group {
@@ -234,6 +237,12 @@ body {
   background: #f3f4f5;
 }
 
+@media only screen and (max-width: 575px) {
+  .grid-form {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
 .grid-form .field-card {
   border: 1px solid #ccc;
 }
@@ -248,7 +257,7 @@ body {
 }
 
 .submit-action {
-   /* max-width: 767px;
+  /* max-width: 767px;
   margin-left: auto;
   margin-right: auto; */
   margin-top: 20px;
