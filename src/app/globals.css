@@ -222,10 +222,10 @@ body {
   display: grid;
   row-gap: 12px;
   column-gap: 12px;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  max-width: 767px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* max-width: 767px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; */
   border: 1px solid #ccc;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -248,9 +248,9 @@ body {
 }
 
 .submit-action {
-   max-width: 767px;
+   /* max-width: 767px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; */
   margin-top: 20px;
   display: flex;
   gap: 10px;
