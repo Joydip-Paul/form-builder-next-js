@@ -42,7 +42,9 @@ export default function FormPreview({ fields, successMessage }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="grid" style={{ rowGap: 12 }}>
+      <div
+        className="grid-form"
+      >
         {fields.map((field) => {
           const req = !!field.required;
           const name = field.name;
@@ -176,7 +178,10 @@ export default function FormPreview({ fields, successMessage }: Props) {
         })}
       </div>
 
-      <div className="flex gap-2 justify-end mt-[20px]">
+      <div className="submit-action">
+        <button className="main-btn">
+            Export JSON
+        </button>
         <button
           type="button"
           onClick={() => {
@@ -187,7 +192,7 @@ export default function FormPreview({ fields, successMessage }: Props) {
         >
           Reset
         </button>
-        <button type="submit" className="main-btn">
+        <button type="submit" className="main-btn fill">
           Submit
         </button>
       </div>

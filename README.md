@@ -11,8 +11,6 @@ This project is lightweight, beginner-friendly, and demonstrates drag-and-drop f
 - 🔹 Supports multiple field types (text, email, date, time, select, radio, checkbox, file, acceptance)  
 - 🔹 Live **form preview** mode  
 - 🔹 **Export form schema** as JSON  
-- 🔹 Reset form builder state anytime  
-- 🔹 Built with **Next.js (App Router)** and **React Hook Form**  
 
 ---
 

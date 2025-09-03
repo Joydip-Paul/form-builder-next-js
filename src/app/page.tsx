@@ -62,12 +62,21 @@ export default function Home() {
   return (
     <main className="main">
       <div className="builder-header">
-        <h2 className="heading-title">
-          {preview ? "Preview" : "Dorik Form Builder"}
-        </h2>
+        {!preview && (
+          <h2 className="heading-title">
+            Dorik Form Builder <span>Design mode</span>
+          </h2>
+        )}
+
+        {preview && (
+          <h2 className="heading-title">
+            Preview <span className="live">Live Preview</span>
+          </h2>
+        )}
+
         <div style={{ display: "flex", gap: 8 }}>
           <button onClick={() => setPreview((p) => !p)} className="main-btn">
-            {preview ? "Back to Edit" : "Preview"}
+            {preview ? "Back to Edit" : "View Preview"}
           </button>
           <button
             onClick={() => {
@@ -79,7 +88,7 @@ export default function Home() {
             Reset
           </button>
 
-          <button
+          {/* <button
             type="button"
             className="main-btn"
             onClick={() => {
@@ -94,7 +103,7 @@ export default function Home() {
             }}
           >
             Export JSON
-          </button>
+          </button> */}
         </div>
       </div>
 

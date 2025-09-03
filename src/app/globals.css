@@ -184,6 +184,19 @@ body {
   font-weight: 600;
 }
 
+.heading-title span {
+  background-color: #b7dbff;
+  color: #040e48;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 25px;
+}
+
+.heading-title .live {
+  background-color: #d5ffd5;
+  color: green;
+}
+
 .main-btn {
   padding: 8px 20px;
   border-radius: 5px;
@@ -198,4 +211,48 @@ body {
   background-color: #010621;
   color: #fff;
   transition: 0.3s all;
+}
+
+.grid-form {
+  display: grid;
+  row-gap: 12px;
+  column-gap: 12px;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  max-width: 767px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ccc;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+  padding: 20px;
+  background: #f3f4f5;
+}
+
+.grid-form .field-card {
+  border: 1px solid #ccc;
+}
+
+.grid-form .field-card:hover {
+  background-color: #fff;
+}
+
+.grid-form .field-card .input {
+  background-color: #fff;
+  color: #212121;
+}
+
+.submit-action {
+   max-width: 767px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.submit-action .fill {
+  background-color: #010621;
+  color: #fff;
 }
