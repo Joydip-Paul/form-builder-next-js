@@ -16,6 +16,11 @@ This project is lightweight, beginner-friendly, and demonstrates drag-and-drop f
 
 ## 🚀 Getting Started
 
+## Export JSON (after submit)
+After successful submit, click Export JSON to download submission.json.
+Files are serialized as an object with { name, size, type }.
+📦 What does the exported JSON look like?
+Example output (dorik.form-builder.json) for a form like yours:
 
 npm install
 # or
